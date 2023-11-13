@@ -2,12 +2,13 @@ class Solution {
 public:
     bool isPalindrome(int x) {
         string s = to_string(x);     // convert to a string
-        int middle = s.length() / 2; // find middle of the string
-
-        for(int i = 0; i < middle; i++){
-            if(s.at(i) != s.at(s.length()-i -1)){
+        
+        int i = 0; int j = s.length()-1;
+        while(i < j){
+            if(s[i] != s[j]){
                 return false;
-            }
+            }    
+            i++; j--;
         }
 
         return true;
