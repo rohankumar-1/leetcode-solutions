@@ -22,9 +22,6 @@ public:
         if(root == NULL || nums.size() == k){
             return;
         }
-        else if(nums.size() == k){
-            return;
-        }
         else{
             dfs(root->left, k);
             nums.push_back(root->val);
