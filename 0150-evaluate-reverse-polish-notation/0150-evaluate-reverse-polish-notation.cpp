@@ -3,9 +3,6 @@ public:
     int evalRPN(vector<string>& tokens) {
         stack<int> s;
         
-        
-        
-        
         for(auto n : tokens){
             if(n == "+"){
                 int x1 = s.top(); s.pop();
