@@ -1,24 +1,23 @@
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        unordered_map<char, int> map;
-
-        // populate HashMap
-        for(auto sx : s){ map[sx]++; }
-    
-        // decrement if found in t
-        for(auto tx : t){ 
-            map[tx]--; 
+        if(s.length() != t.length()){
+            return false;
         }
-
-        // check for all zeros
-        for(auto m : map){
-            if(m.second != 0){
+        
+        unordered_map<char, int> mp;
+        
+        for(auto c : s){
+            mp[c]++;
+        }
+        
+        for(auto c : t){
+            mp[c]--;
+            if(mp[c] < 0){
                 return false;
             }
         }
-
-        // if every single value is 0, then s is an anagram of t 
+        
         return true;
     }
 };
