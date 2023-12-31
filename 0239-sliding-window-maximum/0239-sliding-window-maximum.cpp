@@ -14,7 +14,6 @@ public:
         
         // top of queue should always be current max
         for(int i = 0; i < nums.size(); i++){
-            cout << mp[9] << endl;
             // update map and queue
             mp[nums[i]]++;
             pq.push(nums[i]);
