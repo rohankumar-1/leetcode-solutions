@@ -1,25 +1,16 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> m;
-        vector<int> ret;
-
-
-        int goal;
+        unordered_map<int, int> mp;
         for(int i = 0; i < nums.size(); i++){
-            goal = target - nums[i];
-            unordered_map<int,int>::iterator loc = m.find(goal);
-            if(loc == m.end()){
-                // didn't find the goal value, add value to map
-                m[nums[i]] = i;   // save pair as {val, index}
+            if(mp.count(target-nums[i]) > 0){
+                return {mp[target-nums[i]], i};
             }
             else{
-                // we found the second value, so 
-                ret.push_back(i);
-                ret.push_back(loc->second);
-                break;
+                mp[nums[i]] = i;
             }
         }
-        return ret;
+
+        return {-1, -1};
     }
 };
